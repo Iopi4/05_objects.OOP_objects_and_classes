@@ -37,7 +37,6 @@ object WallService {
     fun printPosts(){
         posts.forEach { println(it) }
     }
-
     // Сброс состояния — нужен для тестов
     fun clear() {
         posts.clear()
