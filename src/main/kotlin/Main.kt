@@ -13,12 +13,19 @@ fun main() {
     )
 
     //Теперь используем сервис для добавления поста на стену
-    val addedPost = WallService.addPost(firstPost)
+    val addedPost = WallService.add(firstPost)
 
     //Выведем результат в консоль
     println("Добавлен пост с ID: ${addedPost.id}")
     println("Текст поста: ${addedPost.text}")
     println("Количество лайков: ${addedPost.likes}")
+
+    //Обновим пост: меняем текст и лайки, id оставляем тот же
+    val updatePost = addedPost.copy(likes = Likes(count = 10)
+    )
+    //Запускаем обновление поста
+    val updateResult = WallService.update(updatePost)
+    println("Обновленный пост: $updateResult")
 
     //Выведем все добавленные посты
     WallService.printPosts()
