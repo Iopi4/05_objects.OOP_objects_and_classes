@@ -22,7 +22,7 @@ object WallService {
 
     // Обновление записи: ищем по id, заменяем элемент, если нашли
     fun update(post: Post): Boolean {
-       //Найдем индекс элемента через indexOfFirst { it.id == post.id }
+       //Найдем индекс элемента через indexOfFirst {it.id == post.id }
         val index = posts.indexOfFirst { it.id == post.id }
 
         // Пост с таким id не найден
@@ -38,6 +38,9 @@ object WallService {
         posts.forEach { println(it) }
     }
 
-    //Метод для получения списка постов
-    fun getPosts (): List<Post> = posts.toList()
+    // Сброс состояния — нужен для тестов
+    fun clear() {
+        posts.clear()
+        nextId = 1
+    }
 }
